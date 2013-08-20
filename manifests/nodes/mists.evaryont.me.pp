@@ -18,4 +18,18 @@ node "mists.evaryont.me" {
   package { 'net-tools':
     ensure => 'present'
   }
+
+  package { 'lsb-release':
+    ensure => 'present'
+  }
+
+  package { 'augeas':
+    ensure => 'present'
+  }
+
+  package { 'ruby-augeas':
+    ensure   => 'present',
+    provider => 'gem',
+    require  => Package['augeas'],
+  }
 }

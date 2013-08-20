@@ -14,4 +14,8 @@ node "mists.evaryont.me" {
     uid     => '2000',
     require => Group['users'],
   }
+
+  package { 'net-tools':
+    ensure => 'present'
+  }
 }

@@ -17,8 +17,8 @@ Vagrant.configure("2") do |config|
   # http://wiki.guildwars2.com/wiki/The_Mists
   config.vm.provision :shell, :inline => "hostnamectl set-hostname mists.evaryont.me"
   
-  #config.vm.provision :puppet do |puppet|
-  #  puppet.manifests_path = "manifests"
-  #  puppet.manifest_file  = "init.pp"
-  #end
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "manifests"
+    puppet.manifest_file  = "site.pp"
+  end
 end

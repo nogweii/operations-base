@@ -1,4 +1,5 @@
 GEM
+  remote: https://rubygems.org/
   specs:
     facter (1.7.2)
     hiera (1.2.1)
@@ -9,6 +10,10 @@ GEM
       hiera (~> 1.0)
       rgen (~> 0.6.5)
     puppet-lint (0.3.2)
+    puppet-syntax (1.0.0)
+      puppet (>= 2.7.0)
+      rake
+    rake (10.1.0)
     rgen (0.6.5)
 
 PLATFORMS
@@ -17,3 +22,4 @@ PLATFORMS
 DEPENDENCIES
   puppet (~> 3.2.0)
   puppet-lint
+  puppet-syntax

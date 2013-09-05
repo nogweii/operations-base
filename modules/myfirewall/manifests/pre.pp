@@ -17,7 +17,7 @@ class myfirewall::pre {
   }->
   firewall { '002 accept related established rules':
     proto   => 'all',
-    state   => ['RELATED', 'ESTABLISHED'],
+    ctstate => ['RELATED', 'ESTABLISHED'],
     action  => 'accept',
   }
 

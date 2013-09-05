@@ -8,6 +8,9 @@
 #   101-899 -- Per-node settings throughout the puppet manifests.
 #   900-999 -- Final rules set in myfirewall::post
 class myfirewall {
+  include myfirewall::pre
+  include myfirewall::post
+
   # Delete all firewall stuff that puppet isn't managing
   resources { 'firewall':
     purge => true
@@ -21,5 +24,4 @@ class myfirewall {
   class { 'firewall':
     ensure => 'running'
   }
-
 }

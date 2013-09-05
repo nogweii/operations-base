@@ -299,20 +299,20 @@ describe firewall do
     end
   end
 
-  describe ':state' do
+  describe ':ctstate' do
     it 'should accept value as a string' do
-      @resource[:state] = :INVALID
-      @resource[:state].should == [:INVALID]
+      @resource[:ctstate] = :INVALID
+      @resource[:ctstate].should == [:INVALID]
     end
 
     it 'should accept value as an array' do
-      @resource[:state] = [:INVALID, :NEW]
-      @resource[:state].should == [:INVALID, :NEW]
+      @resource[:ctstate] = [:INVALID, :NEW]
+      @resource[:ctstate].should == [:INVALID, :NEW]
     end
 
     it 'should sort values alphabetically' do
-      @resource[:state] = [:NEW, :ESTABLISHED]
-      @resource[:state].should == [:ESTABLISHED, :NEW]
+      @resource[:ctstate] = [:NEW, :ESTABLISHED]
+      @resource[:ctstate].should == [:ESTABLISHED, :NEW]
     end
   end
 

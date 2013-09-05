@@ -163,10 +163,10 @@ ARGS_TO_HASH = {
     },
   },
   'state_returns_sorted_values' => {
-    :line => '-A INPUT -m state --state INVALID,RELATED,ESTABLISHED',
+    :line => '-A INPUT -m conntrack --ctstate INVALID,RELATED,ESTABLISHED',
     :table => 'filter',
     :params => {
-      :state => ['ESTABLISHED', 'INVALID', 'RELATED'],
+      :ctstate => ['ESTABLISHED', 'INVALID', 'RELATED'],
       :action => nil,
     },
   },
@@ -178,19 +178,19 @@ ARGS_TO_HASH = {
     },
   },
   'log_level_debug' => {
-    :line => '-A INPUT -m comment --comment "956 INPUT log-level" -m state --state NEW -j LOG --log-level 7',
+    :line => '-A INPUT -m comment --comment "956 INPUT log-level" -m conntrack --ctstate NEW -j LOG --log-level 7',
     :table => 'filter',
     :params => {
-      :state => ['NEW'],
+      :ctstate => ['NEW'],
       :log_level => '7',
       :jump => 'LOG'
     },
   },
   'log_level_warn' => {
-    :line => '-A INPUT -m comment --comment "956 INPUT log-level" -m state --state NEW -j LOG',
+    :line => '-A INPUT -m comment --comment "956 INPUT log-level" -m conntrack --ctstate NEW -j LOG',
     :table => 'filter',
     :params => {
-      :state => ['NEW'],
+      :ctstate => ['NEW'],
       :log_level => '4',
       :jump => 'LOG'
     },
@@ -562,10 +562,10 @@ HASH_TO_ARGS = {
     :params => {
       :name => "100 states_set_from_array",
       :table => "filter",
-      :state => ['ESTABLISHED', 'INVALID']
+      :ctstate => ['ESTABLISHED', 'INVALID']
     },
     :args => ["-t", :filter, "-p", :tcp, "-m", "comment", "--comment", "100 states_set_from_array",
-      "-m", "state", "--state", "ESTABLISHED,INVALID"],
+      "-m", "conntrack", "--ctstate", "ESTABLISHED,INVALID"],
   },
   'comment_string_character_validation' => {
     :params => {
@@ -587,21 +587,21 @@ HASH_TO_ARGS = {
     :params => {
       :name => '956 INPUT log-level',
       :table => 'filter',
-      :state => 'NEW',
+      :ctstate => 'NEW',
       :jump => 'LOG',
       :log_level => 'debug'
     },
-    :args => ['-t', :filter, '-p', :tcp, '-m', 'comment', '--comment', '956 INPUT log-level', '-m', 'state', '--state', 'NEW', '-j', 'LOG', '--log-level', '7'],
+    :args => ['-t', :filter, '-p', :tcp, '-m', 'comment', '--comment', '956 INPUT log-level', '-m', 'conntrack', '--ctstate', 'NEW', '-j', 'LOG', '--log-level', '7'],
   },
   'log_level_warn' => {
     :params => {
       :name => '956 INPUT log-level',
       :table => 'filter',
-      :state => 'NEW',
+      :ctstate => 'NEW',
       :jump => 'LOG',
       :log_level => 'warn'
     },
-    :args => ['-t', :filter, '-p', :tcp, '-m', 'comment', '--comment', '956 INPUT log-level', '-m', 'state', '--state', 'NEW', '-j', 'LOG', '--log-level', '4'],
+    :args => ['-t', :filter, '-p', :tcp, '-m', 'comment', '--comment', '956 INPUT log-level', '-m', 'conntrack', '--ctstate', 'NEW', '-j', 'LOG', '--log-level', '4'],
   },
   'load_limit_module_and_implicit_burst' => {
     :params => {

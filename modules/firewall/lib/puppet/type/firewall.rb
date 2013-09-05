@@ -518,12 +518,12 @@ Puppet::Type.newtype(:firewall) do
     end
   end
 
-  newproperty(:state, :array_matching => :all, :required_features =>
+  newproperty(:ctstate, :array_matching => :all, :required_features =>
     :state_match) do
 
     desc <<-EOS
       Matches a packet based on its state in the firewall stateful inspection
-      table. Values can be:
+      table, using the conntrack module. Values can be:
 
       * INVALID
       * ESTABLISHED

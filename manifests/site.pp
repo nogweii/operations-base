@@ -5,4 +5,8 @@ import "nodes/*.pp"
 node 'common' {
   include concat::setup
   include stdlib::stages
+
+  if ($operatingsystem == 'Archlinux') {
+    include pacman
+  }
 }

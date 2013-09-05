@@ -9,4 +9,6 @@ node 'common' {
   if ($operatingsystem == 'Archlinux') {
     include pacman
   }
+
+  include myfirewall
 }

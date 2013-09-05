@@ -1,4 +1,4 @@
-node "mists.evaryont.me" {
+node "mists.evaryont.me" inherits 'common' {
   group { 'users':
     ensure => 'present',
     gid    => '100',

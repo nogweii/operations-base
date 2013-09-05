@@ -15,6 +15,11 @@ node "mists.evaryont.me" inherits 'common' {
     require => Group['users'],
   }
 
+  # I dislike yaourt, so remove it from the system.
+  package { 'yaourt':
+    ensure => 'absent'
+  }
+
   package { 'net-tools':
     ensure => 'present'
   }

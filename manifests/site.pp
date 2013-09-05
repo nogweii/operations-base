@@ -4,4 +4,5 @@ import "nodes/*.pp"
 # "inherits 'common'".
 node 'common' {
   include concat::setup
+  include stdlib::stages
 }

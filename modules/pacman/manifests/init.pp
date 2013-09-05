@@ -1,10 +1,10 @@
+# Security and configuration of pacman, the Arch Linux package manager.
 class pacman {
   file { ['/etc/pacman.d', '/etc/pacman.d/gnupg']:
     ensure => directory,
     owner  => 'root',
     group  => 'root',
     mode   => '0755',
-    stage  => 'setup'
   }
 
   file { ['/etc/pacman.conf',
@@ -18,7 +18,6 @@ class pacman {
     group   => 'root',
     mode    => '0644',
     require => [File['/etc/pacman.d'], File['/etc/pacman.d/gnupg']],
-    stage   => 'setup'
   }
 
   file { ['/etc/pacman.d/gnupg/random_seed', '/etc/pacman.d/gnupg/secring.gpg']:
@@ -27,7 +26,6 @@ class pacman {
     group   => 'root',
     mode    => '0600',
     require => File['/etc/pacman.d/gnupg'],
-    stage   => 'setup'
   }
 
 }

@@ -3,7 +3,8 @@ require 'puppet-syntax/tasks/puppet-syntax'
 
 PuppetLint.configuration.ignore_paths =
   ["modules/stdlib/**/*.pp",
-   "modules/concat/**/*.pp"]
+   "modules/concat/**/*.pp",
+   "modules/firewall/**/*.pp"]
 
 desc "Generate documentation."
 task :doc do |t|

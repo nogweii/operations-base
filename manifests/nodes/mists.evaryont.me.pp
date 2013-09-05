@@ -1,11 +1,11 @@
-node "mists.evaryont.me" inherits 'common' {
+node 'mists.evaryont.me' inherits 'common' {
   group { 'users':
-    ensure => 'present',
+    ensure => present,
     gid    => '100',
   }
 
   user { 'colin':
-    ensure  => 'present',
+    ensure  => present,
     comment => 'Colin\'s Admin Account' ,
     gid     => '100',
     groups  => ['wheel', 'log'],
@@ -17,23 +17,23 @@ node "mists.evaryont.me" inherits 'common' {
 
   # I dislike yaourt, so remove it from the system.
   package { 'yaourt':
-    ensure => 'absent'
+    ensure => absent
   }
 
   package { 'net-tools':
-    ensure => 'present'
+    ensure => present
   }
 
   package { 'lsb-release':
-    ensure => 'present'
+    ensure => present
   }
 
   package { 'augeas':
-    ensure => 'present'
+    ensure => present
   }
 
   package { 'ruby-augeas':
-    ensure   => 'present',
+    ensure   => present,
     provider => 'gem',
     require  => Package['augeas'],
   }

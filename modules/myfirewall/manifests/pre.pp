@@ -1,3 +1,5 @@
+# Rules to apply to the beginnig of every system's firewall chain. The rules are
+# indexed 000-100, no higher.
 class myfirewall::pre {
   Firewall {
     require => undef,

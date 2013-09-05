@@ -18,9 +18,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :inline => "hostnamectl set-hostname mists.evaryont.me"
   
   config.vm.provision :puppet do |puppet|
+    puppet.module_path = "modules"
     puppet.manifests_path = "manifests"
     puppet.manifest_file  = "site.pp"
-    puppet.options        = "--verbose --debug"
+    #puppet.options        = "--verbose --debug"
   end
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
